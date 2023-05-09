@@ -1,0 +1,79 @@
+Embedded Challenge Spring 2023 Term Project
+“Embedded Sentry”
+
+Objective:
+    ● Use the data collected from a single accelerometer and/or gyro to record a hand movement sequence as a means to generally “unlock” a resource.
+    ● Recorded sequence must be saved on the microcontroller, using a “Record Key” feature.
+    ● User then must replicate the key sequence within sufficient tolerances to unlock the resource.
+    ● A successful unlock must be indicated by a visual indication, such as an LED or similar indicator.
+
+Restrictions:
+    ● This is an group project to be done by groups of no more than 3 students
+    ● Only one microcontroller and one accelerometer/gyro may be used, preferably
+    the one integrated on your board.
+    ● You must use PlatformIO as we have done throughout the class
+    ● You will be allowed to use drivers/HAL functions available through the IDE ● The accelerometer/gyro must be held in a closed fist of either hand while
+    performing the mechanical sequence.
+    ● An “enter key” and ”record” functionality must be developed to so the user knows
+    when to start the sequence of unlocking and recording respectively.
+
+Grading Criteria:
+    ● Ability to successfully achieve the objectives (40%)
+    ● Repeatability and robustness of unlock sequence (via video demo) (20%) 
+    ● Ease of use (10%)
+    ● Creativity (10%)
+    ● Well written code (10%)
+    ● Complexity (10%)
+
+
+Breakdown:
+    - gyro
+        - spi interface
+        - record sequence
+
+    - lcd implementation
+        - 1 screen to ask user to enter sequence
+        - another screen saying successful entry
+
+logic:
+
+    movement:
+
+
+    - waiting for sequence
+    if the gyro moves: (ACCORDING TO PARAMETERS)
+        - start recording the movement
+        when gyro stops:
+            - we check recording against key
+            if same then success
+
+    
+Pseudocode:
+
+    setupFunctions:
+        -setup lcd
+        -setup spi and gyro
+
+    wait for gyro to be "still" for XXX seconds
+    then if gyro moves:
+        -start recording
+
+        if timeout == true:
+            -stop recording
+            -
+
+
+polling = [[1.2, 0.78],[],[]]
+
+key:
+    record data 10 times
+    average the data
+    we have the key
+
+to compare:
+    for axis in recording:
+        for data in axis:
+            if data - key < tolerances:
+                success
+            else:
+                fail
