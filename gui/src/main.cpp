@@ -55,19 +55,19 @@ void update_screen_state()
   case UNLOCKED_STATE:
     lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_GREEN);
-    snprintf(display_buf[0], 200, "Unlocked!");
+    snprintf(display_buf[0], 60, "Unlocked!");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   case LOCKED_STATE:
     lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_RED);
-    snprintf(display_buf[0], 200, "LOCKED!");
+    snprintf(display_buf[0], 60, "LOCKED!");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   case ENTER_KEY_STATE:
     lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_CYAN);
-    snprintf(display_buf[0], 200, "Enter Password...");
+    snprintf(display_buf[0], 60, "Enter Password...");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   }
@@ -145,6 +145,17 @@ void state_timeout_handler()
       break;
   }
 }
+
+enum LCDState
+{
+    EnterKey,
+    EnterPassword,
+    Locked,
+    Unlocked,
+    IncorrectPassword,
+    CorrectPassword,
+    NoKeyAllowed
+};
 
 int main()
 {
