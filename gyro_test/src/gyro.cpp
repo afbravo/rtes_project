@@ -99,12 +99,12 @@ void Gyro::Gyro::readXYZ(){
     */
 
     //check if new data is available
-    cs = 0;ß
+    cs = 0;
     spi.write(read_no_incr | status_reg);
     char status = spi.write(0x00);
     cs = 1;
     if((status & new_data) == 0){
-            return;
+        return;
     }
 
     //read x y z using incrementing address mode
@@ -182,14 +182,14 @@ void Gyro::Gyro::getPosition(const short int *data, int *currentPosition, bool *
         if(*currentPosition == 0){
             *currentPosition = 1;
         }
-        else if(*currentPosition == -1){
+        else if(*currentPosition == 2){
             *currentPosition = 0;
         }
         *change = 0; //set change to 0 so position can't be changed again
     }
     else if((*data < -change_trigger) & *change){
         if(*currentPosition == 0){
-            *currentPosition = -1;
+            *currentPosition = 2;
         }
         else if(*currentPosition == 1){
             *currentPosition = 0;
