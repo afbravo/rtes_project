@@ -59,6 +59,7 @@ namespace Gyro{
             void init();
             void readXYZ();
             void updatePosition();
+            void center(){yPosition = 0; xPosition = 0; zPosition = 0;}
             short int getX(){return x;}
             short int getY(){return y;}
             short int getZ(){return z;}

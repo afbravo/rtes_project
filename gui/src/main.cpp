@@ -47,7 +47,7 @@ void update_screen_state()
   switch (state)
   {
   case RECORDING_STATE:
-    lcd.SetBackColor(LCD_COLOR_WHITE);
+    lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_BLUE);
     snprintf(display_buf[0], 60, "Recording Key...");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
@@ -55,25 +55,25 @@ void update_screen_state()
   case UNLOCKED_STATE:
     lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_GREEN);
-    snprintf(display_buf[0], 60, "Unlocked!");
+    snprintf(display_buf[0], 200, "Unlocked!");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   case LOCKED_STATE:
-    lcd.SetBackColor(LCD_COLOR_WHITE);
+    lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_RED);
-    snprintf(display_buf[0], 60, "LOCKED!");
+    snprintf(display_buf[0], 200, "LOCKED!");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   case ENTER_KEY_STATE:
     lcd.SetBackColor(LCD_COLOR_BLACK);
     lcd.SetTextColor(LCD_COLOR_CYAN);
-    snprintf(display_buf[0], 60, "Enter Key...");
+    snprintf(display_buf[0], 200, "Enter Password...");
     lcd.DrawRect(GRAPH_PADDING, lcd.GetYSize() - graph_height - GRAPH_PADDING, graph_width, graph_height);
     break;
   }
 
   // Display the current state message on the screen
-  lcd.DisplayStringAt(0, LINE(16), (uint8_t *)display_buf[0], LEFT_MODE);
+  lcd.DisplayStringAt(0, LINE(10), (uint8_t *)display_buf[0], CENTER_MODE);
 }
 
 // Define an interrupt to handle user button presses
