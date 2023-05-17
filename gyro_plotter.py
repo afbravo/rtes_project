@@ -99,6 +99,11 @@ def animate_x(i, startTime, t, x, y, z):
     ax.text(0.1, 0.95, 'Y Loc: ' + yPos, transform=ax.transAxes)
     ax.text(0.1, 0.90, 'X Loc: ' + xPos, transform=ax.transAxes)
     ax.text(0.1, 0.85, 'Z Loc: ' + zPos, transform=ax.transAxes)
+
+    ax.axhline(y=5000, color='black', linestyle='--')
+    ax.axhline(y=-5000, color='black', linestyle='--')
+    ax.axhline(y=30000, color='red', linestyle='--')
+    ax.axhline(y=-30000, color='red', linestyle='--')
             
 
     ax.set_ylim(-40000, 40000)
@@ -107,7 +112,7 @@ def animate_x(i, startTime, t, x, y, z):
     ax.set_ylabel('Angular Velocity')
     ax.grid(True)
 
-ser = serial.Serial(port = '/dev/tty.usbmodem141403', baudrate=9600, timeout=0.1)
+ser = serial.Serial(port = '/dev/tty.usbmodem143403', baudrate=9600, timeout=0.1)
 startTime = time.time()
 ani = animation.FuncAnimation(fig, animate_x, fargs=(startTime, t, x, y, z), interval=1)
 plt.show()

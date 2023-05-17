@@ -44,7 +44,7 @@ values change by a certain amount.
 #define id 211
 
 // position values
-#define change_trigger 30000
+#define change_trigger 20000
 #define reset_trigger 5000
 
 
