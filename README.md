@@ -1,4 +1,4 @@
-# REAL TIME EMBEDDED SYSTEMS FINAL PROJECT - Spring 2023
+# Real Time Embedded Systems Final Project
 
 Members:<br><br>
     Andres Bravo - afb389<br>
